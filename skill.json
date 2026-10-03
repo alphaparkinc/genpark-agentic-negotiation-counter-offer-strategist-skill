@@ -1,0 +1,52 @@
+{
+  "name": "genpark-agentic-negotiation-counter-offer-strategist-skill",
+  "version": "1.0.0",
+  "description": "Autonomous Agentic Multi-Turn Negotiator & Counter-Offer Strategist (inspired by Consumer Commerce & Contract Negotiations). Calculates Zone of Possible Agreement (ZOPA), concession decay curves, reservation price thresholds, and structured bargaining counter-offers.",
+  "tools": [
+    {
+      "name": "negotiate_counter_offer",
+      "description": "Autonomous multi-turn negotiation: analyze seller bids, calculate ZOPA bargaining range, apply concession curves, and formulate optimal counter-offers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "evaluate_and_counter_offer",
+              "calculate_zopa_range",
+              "generate_counter_offer_narrative"
+            ],
+            "description": "Negotiation action."
+          },
+          "item_name": {
+            "type": "string",
+            "description": "Subject item, service, or contract."
+          },
+          "current_ask_price": {
+            "type": "number",
+            "description": "Seller's current asking price."
+          },
+          "buyer_reservation_price": {
+            "type": "number",
+            "description": "Maximum buyer is willing to pay (walk-away price)."
+          },
+          "target_initial_bid": {
+            "type": "number",
+            "description": "Ideal initial anchor bid."
+          },
+          "turn_number": {
+            "type": "integer",
+            "description": "Current turn in negotiation (1, 2, 3...)."
+          },
+          "max_turns": {
+            "type": "integer",
+            "description": "Maximum allowed negotiation rounds before walk-away."
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  ]
+}
